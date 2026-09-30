@@ -8,7 +8,9 @@ extern unsigned __bss_sram_section_end;
 // App main function 
 extern int main(void);
 
-void System_Init(void);
+void System_Init(void) {
+	// Your system initialization here
+}
 
 void CopyDataFromFlashToSRAM(void) {
 	unsigned *flash_start = &__flash_data_section_start;
