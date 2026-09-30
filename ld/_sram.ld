@@ -18,5 +18,5 @@ SECTIONS {
     
     _stack_size = 2K;
     _stack_start = ORIGIN(SRAM) + LENGTH(SRAM)
-    ASSERT( . + _stack_size <= _stack_start, "RAM overflow: No memory on the stack")
+    ASSERT( . + _stack_size <= _stack_start, "RAM overflow: No memory for the stack")
 }
