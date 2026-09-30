@@ -1,0 +1,16 @@
+# Build output
+build/
+*.o
+*.elf
+*.bin
+*.hex
+*.map
+*.d
+
+# macOS
+.DS_Store
+
+# Editors
+.vscode/
+.idea/
+*.swp
