@@ -1,19 +1,19 @@
 SECTIONS {
     .data : {
         . = ALIGN(4);
-        _sram_start_data_section = .;
+        __sram_data_section_start = .;
         *(.data*)
         . = ALIGN(4);
-        _sram_end_data_section = .;
+        __sram_data_section_end = .;
     } > SRAM AT > FLASH;
 
     .bss : {
         . = ALIGN(4);
-        _bss_start = .;
+        __bss_sram_section_start = .;
         *(.bss*)
         *(COMMON)
         . =  ALIGN(4);
-        _bss_end = .;
+        __bss_sram_section_end = .;
     } > SRAM;
     
     _stack_size = 2K;
