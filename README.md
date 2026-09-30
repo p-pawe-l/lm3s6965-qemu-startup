@@ -14,6 +14,26 @@ brew install --cask gcc-arm-embedded
 brew install qemu
 ```
 
+On Linux:
+
+```sh
+# Debian / Ubuntu
+sudo apt install gcc-arm-none-eabi qemu-system-arm gdb-multiarch
+
+# Fedora
+sudo dnf install arm-none-eabi-gcc-cs arm-none-eabi-newlib qemu-system-arm gdb
+
+# Arch
+sudo pacman -S arm-none-eabi-gcc arm-none-eabi-newlib arm-none-eabi-gdb qemu-system-arm
+```
+
+Check that the tools are installed and that QEMU knows the board:
+
+```sh
+arm-none-eabi-gcc --version
+qemu-system-arm -M help | grep lm3s6965evb
+```
+
 ## Build and run
 
 ```sh
@@ -34,4 +54,10 @@ In another terminal:
 arm-none-eabi-gdb firmware.elf -ex "target remote :1234"
 (gdb) break Reset_Handler
 (gdb) continue
+```
+
+On Debian/Ubuntu there is no `arm-none-eabi-gdb` package — use `gdb-multiarch` instead:
+
+```sh
+gdb-multiarch firmware.elf -ex "target remote :1234"
 ```
